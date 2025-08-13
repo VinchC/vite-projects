@@ -1,3 +1,3 @@
-export default function Text() {
-  return <p>Salut</p>;
+export default function Text({ text }) {
+  return <p>{text}</p>;
 }
