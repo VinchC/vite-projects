@@ -1,17 +1,12 @@
-import { useState } from "react";
 import "./App.css";
+import Count from "./components/Count";
+import Text from "./components/Text";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <p>Hello</p>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Text />
+      <Count />
     </>
   );
 }
