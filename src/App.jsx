@@ -1,5 +1,6 @@
 import "./App.css";
 import Count from "./components/Count";
+import MovieCard from "./components/MovieCard";
 import Text from "./components/Text";
 
 import data from "./data.json";
@@ -7,12 +8,11 @@ import data from "./data.json";
 function App() {
   return (
     <>
-      {data.names.map((i) => (
-        <Text text={i} />
-      ))}
-      {/* <Text text="Hop" />
-      <Text text="Bof" /> */}
-      <Count />
+      <div className="movie-container">
+        {data.movies.map((i) => (
+          <MovieCard movie={i} />
+        ))}
+      </div>
     </>
   );
 }
