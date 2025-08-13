@@ -1,18 +1,8 @@
 import "./App.css";
-import MovieCard from "./components/MovieCard";
-
-import data from "./data.json";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return (
-    <>
-      <div className="movie-container">
-        {data.movies.map((i) => (
-          <MovieCard key={i.id} movie={i} />
-        ))}
-      </div>
-    </>
-  );
+  return <Outlet />;
 }
 
 export default App;

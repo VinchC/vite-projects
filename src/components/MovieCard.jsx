@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
   const [favorite, setFavorite] = useState(false);
@@ -18,7 +19,11 @@ export default function MovieCard({ movie }) {
           </div>
         </div>
         <div className="movie-info">
-          <h3>{movie.title}</h3>
+          <h3>
+            <Link to={`/movies/${movie.id}`}>
+              {movie.title}
+            </Link>
+          </h3>
           <p>{movie.release_date}</p>
         </div>
       </div>
