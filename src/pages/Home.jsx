@@ -27,11 +27,16 @@ export default function Home() {
   return (
     <>
       <Search query={query} setQuery={setQuery} />
-      <div className="flex flex-wrap justify-center items-center">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </div>
+      {error && <span className="error-message">{error}</span>}
+      {loading ? (
+        <p className="loading">Loading...</p>
+      ) : (
+        <div className="flex flex-wrap justify-center items-center">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
+      )}
     </>
   );
 }
