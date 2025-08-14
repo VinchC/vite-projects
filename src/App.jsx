@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/utils/Header";
+import Footer from "./components/utils/Footer";
 
 function App() {
   return (
     <>
       <Header />
-      <main id="main">
+      <main className="mt-16" id="main">
         <Outlet />
       </main>
       <Footer />

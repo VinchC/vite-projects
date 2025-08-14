@@ -68,3 +68,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+/* displays the skip navigation link when it is focused */
+#skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
