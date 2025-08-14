@@ -1,4 +1,5 @@
 import MovieCard from "../components/MovieCard";
+import Search from "../components/utils/Search";
 import { useState, useEffect } from "react";
 import { getPopularMovies, searchMovies } from "./../services/api";
 
@@ -44,20 +45,11 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center">
-        <form onSubmit={handleSearch} className="search-form mt-8">
-          <input
-            type="text"
-            value={searchQuery}
-            placeholder="Your search..."
-            className="search-input"
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          <button type="submit" className="search-button">
-            Search
-          </button>
-        </form>
-      </div>
+      <Search
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        handleSearch={handleSearch}
+      />
 
       {error && <div className="error-message">{error}</div>}
 

@@ -1,7 +1,7 @@
 Source:
 https://www.youtube.com/watch?v=G6D9cBaLViA
 
-Time: 32'44''
+Time: 1:16:47
 
 # React + Vite
 
