@@ -4,7 +4,7 @@ import data from "../data.json";
 export default function Home() {
   return (
     <>
-      <div className="movie-container">
+      <div className="flex justify-center items-center">
         {data.movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
