@@ -1,0 +1,17 @@
+{
+  "quotes": ["bien", "ou", "quoi", "?", "ouech"],
+  "movies": [
+    {
+      "id": "1",
+      "title": "Orange mécanique",
+      "url": "https://fr.web.img6.acsta.net/medias/nmedia/18/36/25/34/18465555.jpg",
+      "release_date": 1971
+    },
+    {
+      "id": "2",
+      "title": "Les Tontons flingueurs",
+      "url": "https://m.media-amazon.com/images/I/51REVYA121L.jpg",
+      "release_date": 1963
+    }
+  ]
+}

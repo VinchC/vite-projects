@@ -1,17 +1,15 @@
-import { useState } from "react";
-import "./App.css";
+import { Outlet } from "react-router-dom";
+import Header from "./components/utils/Header";
+import Footer from "./components/utils/Footer";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <p>Hello</p>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Header />
+      <main className="mt-16" id="main">
+        <Outlet />
+      </main>
+      <Footer />
     </>
   );
 }
