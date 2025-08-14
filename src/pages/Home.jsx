@@ -1,22 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
-import data from "../data.json";
 import Search from "./../components/utils/Search";
+import { getPopularMovies, searchMovies } from "./../services/api";
 
 export default function Home() {
-  const movies = data.movies;
   const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPopularMovies = async () => {
+      try {
+        const popularMovies = await getPopularMovies();
+        setMovies(popularMovies);
+      } catch (err) {
+        console.log(err);
+        setError("Error occured while loading data...");
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadPopularMovies();
+  }, []);
 
   return (
     <>
       <Search query={query} setQuery={setQuery} />
-      <div className="flex justify-center items-center">
-        {movies.map(
-          (movie) =>
-            movie.title.toLowerCase().includes(query) && (
-              <MovieCard key={movie.id} movie={movie} />
-            )
-        )}
+      <div className="flex flex-wrap justify-center items-center">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </>
   );
