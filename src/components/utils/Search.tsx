@@ -1,8 +1,4 @@
-export default function Search({ query, setQuery }) {
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setQuery("");
-  };
+export default function Search({ query, setQuery, handleSearch }) {
 
   return (
     <>

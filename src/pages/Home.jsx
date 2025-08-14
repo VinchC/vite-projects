@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
-import Search from "./../components/utils/Search";
+import { useState, useEffect } from "react";
 import { getPopularMovies, searchMovies } from "./../services/api";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -24,17 +23,51 @@ export default function Home() {
     loadPopularMovies();
   }, []);
 
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    if (loading) return;
+
+    setLoading(true);
+
+    try {
+      const searchResults = await searchMovies(searchQuery);
+      setMovies(searchResults);
+      setError(null);
+    } catch (err) {
+      console.log(err);
+      setError("Error occured while searching");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
-      <Search query={query} setQuery={setQuery} />
-      {error && <span className="error-message">{error}</span>}
+      <div className="flex justify-center">
+        <form onSubmit={handleSearch} className="search-form mt-8">
+          <input
+            type="text"
+            value={searchQuery}
+            placeholder="Your search..."
+            className="search-input"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button type="submit" className="search-button">
+            Search
+          </button>
+        </form>
+      </div>
+
+      {error && <div className="error-message">{error}</div>}
+
       {loading ? (
         <p className="loading">Loading...</p>
       ) : (
         <div className="flex flex-wrap justify-center items-center">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
+          {movies &&
+            movies.length &&
+            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
         </div>
       )}
     </>
