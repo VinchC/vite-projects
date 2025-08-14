@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
 
         <div class="mx-6 py-10 text-center md:text-left">
-          <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="grid-1 grid gap-16 md:grid-cols-2 lg:grid-cols-3">
             <div class="">
               <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
                 <span class="me-3 [&>svg]:h-4 [&>svg]:w-4">
