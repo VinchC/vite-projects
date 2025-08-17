@@ -1,8 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMovieContext } from "./../contexts/MovieContext";
 
 export default function MovieCard({ movie }) {
-  const [favorite, setFavorite] = useState(false);
+  const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext();
+  const favorite = isFavorite(movie.id);
+
+  function onFavoriteClick(e) {
+    e.preventDefault();
+    if (favorite) removeFromFavorites(movie.id);
+    else addToFavorites(movie);
+  }
 
   return (
     <>
@@ -14,10 +21,7 @@ export default function MovieCard({ movie }) {
             alt={movie.title}
           />
           <div className="mt-4">
-            <button
-              className="favorite-btn"
-              onClick={() => setFavorite(favorite ? false : true)}
-            >
+            <button className="favorite-btn" onClick={onFavoriteClick}>
               {favorite ? "Hop !" : "Bof !"}
             </button>
           </div>
