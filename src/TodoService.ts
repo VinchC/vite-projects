@@ -10,7 +10,7 @@ const TodoService = {
 
   addTodo: (text: string): TodoTypes => {
     const todos = TodoService.getTodos();
-    const newTodo: TodoTypes = { id: todos.length + 1, text, completed: false };
+    const newTodo: TodoTypes = { id: todos.length + 1, text, status: false };
 
     const updateTodos = [...todos, newTodo];
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updateTodos));

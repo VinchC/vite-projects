@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import TodoTypes from "../todo";
 import TodoService from "../TodoService";
+import "../CSS/TodoForm.css";
 
 interface PropTypes {
   setTodos: Dispatch<SetStateAction<TodoTypes[]>>;
@@ -25,6 +26,7 @@ const TodoForm: React.FC<PropTypes> = ({ setTodos }) => {
         autoFocus={true}
         placeholder="Add a task"
       ></input>
+
       <button onClick={handleAddTodo}>Add to do</button>
     </div>
   );

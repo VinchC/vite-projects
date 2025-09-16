@@ -1,7 +1,7 @@
 interface TodoTypes {
   id: number;
   text: string;
-  completed: boolean;
+  status: boolean;
 }
 
 export default TodoTypes;
