@@ -11,8 +11,6 @@ export default function PlayerCard({ player }) {
   //   else addToFavorites(player);
   // }
 
-  // console.log(player);
-
   return (
     <>
       <div className="flex flex-col justify-between items-center m-[4rem]">

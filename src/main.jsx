@@ -5,11 +5,14 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
+import Player from "./pages/Player.jsx";
+import Club from "./pages/Club";
+import Country from "./pages/Country";
+import Favorites from "./pages/Favorites.jsx";
 import About from "./pages/About.jsx";
-import Contact from "./pages/Contact.jsx";
-import MoviePage from "./pages/players/page.jsx";
-import Players from "./pages/Players.jsx";
-// import Favorites from "./pages/Favorites.jsx";
+import PlayerPage from "./pages/players/page.jsx";
+import ClubPage from "./pages/clubs/page";
+import CountryPage from "./pages/countries/page";
 
 const router = createBrowserRouter([
   {
@@ -21,36 +24,36 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "about",
-        element: <About />,
-      },
-      // {
-      //   path: "favorites",
-      //   element: <Favorites />,
-      // },
-      {
         path: "players",
-        element: <Players />,
+        element: <Player />,
       },
       {
         path: "players/:id",
-        element: <MoviePage />,
-      },
-      {
-        path: "countries",
-        element: <Contact />,
-      },
-      {
-        path: "countries/:id",
-        element: <MoviePage />,
+        element: <PlayerPage />,
       },
       {
         path: "clubs",
-        element: <Contact />,
+        element: <Club />,
       },
       {
         path: "clubs/:id",
-        element: <MoviePage />,
+        element: <ClubPage />,
+      },
+      {
+        path: "countries",
+        element: <Country />,
+      },
+      {
+        path: "countries/:id",
+        element: <CountryPage />,
+      },
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
     ],
   },

@@ -6,8 +6,6 @@ export default function PlayerPage() {
   const { id } = useParams();
   const playerToDisplay = PLAYERS.filter((player) => player.id == id)[0];
 
-  console.log(playerToDisplay);
-
   return (
     <>
       <div className="flex flex-wrap justify-center items-center">
