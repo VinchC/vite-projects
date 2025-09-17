@@ -1,4 +1,7 @@
-Source:
+Lancer le site :
+npm run dev
+
+Source :
 https://www.youtube.com/watch?v=G6D9cBaLViA
 
 Time: 1:20:25

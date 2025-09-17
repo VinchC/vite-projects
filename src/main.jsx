@@ -7,8 +7,8 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
-import MoviePage from "./pages/movies/page.jsx";
-import Favorites from "./pages/Favorites.jsx";
+import MoviePage from "./pages/players/page.jsx";
+// import Favorites from "./pages/Favorites.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,16 +23,32 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
+      // {
+      //   path: "favorites",
+      //   element: <Favorites />,
+      // },
       {
-        path: "favorites",
-        element: <Favorites />,
-      },
-      {
-        path: "contact",
+        path: "players",
         element: <Contact />,
       },
       {
-        path: "movies/:id",
+        path: "players/:id",
+        element: <MoviePage />,
+      },
+      {
+        path: "countries",
+        element: <Contact />,
+      },
+      {
+        path: "countries/:id",
+        element: <MoviePage />,
+      },
+      {
+        path: "clubs",
+        element: <Contact />,
+      },
+      {
+        path: "clubs/:id",
         element: <MoviePage />,
       },
     ],

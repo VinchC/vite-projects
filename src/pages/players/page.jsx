@@ -1,7 +1,7 @@
 import MovieCard from "../../components/MovieCard";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
-import { getPopularMovies } from "./../../services/api";
+import { getPopularMovies } from "../../services/api";
 
 export default function MoviePage() {
   const { id } = useParams();
