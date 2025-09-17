@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
-// import { useMovieContext } from "../contexts/MovieContext";
+import { usePlayerContext } from "../contexts/PlayerContext";
 
 export default function PlayerCard({ player }) {
-  // const { isFavorite, addToFavorites, removeFromFavorites } = useMovieContext();
-  // const favorite = isFavorite(player.id);
+  const { isFavorite, addToFavorites, removeFromFavorites } =
+    usePlayerContext();
+  const favorite = isFavorite(player.id);
 
-  // function onFavoriteClick(e) {
-  //   e.preventDefault();
-  //   if (favorite) removeFromFavorites(player.id);
-  //   else addToFavorites(player);
-  // }
+  function onFavoriteClick(e) {
+    e.preventDefault();
+    if (favorite) removeFromFavorites(player.id);
+    else addToFavorites(player);
+  }
 
   return (
     <>
@@ -20,11 +21,11 @@ export default function PlayerCard({ player }) {
             src={player.picture}
             alt={player.full_name}
           />
-          {/* <div className="mt-4">
+          <div className="mt-4">
             <button className="favorite-btn" onClick={onFavoriteClick}>
               {favorite ? "Hop !" : "Bof !"}
             </button>
-          </div> */}
+          </div>
         </div>
         <div className="flex flex-col items-center">
           <h3>
