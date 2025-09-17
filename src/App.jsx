@@ -8,7 +8,7 @@ function App() {
     <>
       <PlayerProvider>
         <Header />
-        <main className="mt-24" id="main">
+        <main className="mt-24 min-h-96" id="main">
           <Outlet />
         </main>
         <Footer />
