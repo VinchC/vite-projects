@@ -1,38 +1,18 @@
-import MovieCard from "../../components/MovieCard";
 import { useParams } from "react-router";
-import { useState, useEffect } from "react";
-import { getPopularMovies } from "../../services/api";
+import PlayerCard from "../../components/PlayerCard";
+import { PLAYERS } from "../../data/data";
 
-export default function MoviePage() {
+export default function PlayerPage() {
   const { id } = useParams();
-  const [movie, setMovie] = useState();
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const playerToDisplay = PLAYERS.filter((player) => player.id == id)[0];
 
-  useEffect(() => {
-    const loadMovie = async () => {
-      try {
-        const popularMovies = await getPopularMovies();
-        let chosenMovie = popularMovies.filter((movie) => movie.id == id)[0];
-        setMovie(chosenMovie);
-      } catch (err) {
-        console.log(err);
-        setError("Error occured while loading data...");
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadMovie();
-  }, [id]);
+  console.log(playerToDisplay);
 
   return (
     <>
-      {error && <div className="error-message">{error}</div>}
-      {loading ? (
-        <p className="loading">Loading...</p>
-      ) : (
-        <MovieCard movie={movie} />
-      )}
+      <div className="flex flex-wrap justify-center items-center">
+        <PlayerCard player={playerToDisplay} />
+      </div>
     </>
   );
 }

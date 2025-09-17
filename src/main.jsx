@@ -8,6 +8,7 @@ import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import MoviePage from "./pages/players/page.jsx";
+import Players from "./pages/Players.jsx";
 // import Favorites from "./pages/Favorites.jsx";
 
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       // },
       {
         path: "players",
-        element: <Contact />,
+        element: <Players />,
       },
       {
         path: "players/:id",

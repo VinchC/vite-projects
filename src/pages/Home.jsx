@@ -1,7 +1,7 @@
-import MovieCard from "../components/MovieCard";
 import Search from "../components/utils/Search";
 import { useState, useEffect } from "react";
 import { getPopularMovies, searchMovies } from "./../services/api";
+import PlayerCard from "../components/PlayerCard";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,7 +59,7 @@ export default function Home() {
         <div className="flex flex-wrap justify-center items-center">
           {movies &&
             movies.length &&
-            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+            movies.map((movie) => <PlayerCard key={movie.id} movie={movie} />)}
         </div>
       )}
     </>

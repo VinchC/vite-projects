@@ -6,13 +6,13 @@ import { MovieProvider } from "./contexts/MovieContext";
 function App() {
   return (
     <>
-      <MovieProvider>
-        <Header />
-        <main className="mt-24" id="main">
-          <Outlet />
-        </main>
-        <Footer />
-      </MovieProvider>
+      {/* <MovieProvider> */}
+      <Header />
+      <main className="mt-24" id="main">
+        <Outlet />
+      </main>
+      <Footer />
+      {/* </MovieProvider> */}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import MovieCard from "../components/MovieCard";
+import PlayerCard from "../components/PlayerCard";
 import { useMovieContext } from "./../contexts/MovieContext";
 
 function Favorites() {
@@ -10,7 +10,7 @@ function Favorites() {
         <h1 className="text-center">Your Favorites</h1>
         <div className="flex flex-wrap justify-center items-centerd">
           {favorites.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
+            <PlayerCard movie={movie} key={movie.id} />
           ))}
         </div>
       </div>
