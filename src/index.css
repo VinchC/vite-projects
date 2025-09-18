@@ -36,6 +36,12 @@ body {
   min-height: 100vh;
 }
 
+button {
+  border-radius: 5px;
+  padding: 4px;
+  width: 4rem;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -58,10 +64,8 @@ body {
     color: #747bff;
   }
   button {
-    background-color: #057de6;
-    border-radius: 5px;
-    padding: 4px;
-    width: 4rem;
+    background-color: #eef1f3;
+    color: #000000;
   }
 }
 
