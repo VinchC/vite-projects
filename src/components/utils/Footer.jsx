@@ -1,7 +1,15 @@
+import { Link } from "react-router-dom";
+import { NAVBAR_LINKS } from "../../data/data";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 export default function Footer() {
   return (
     <>
       <footer className="bg-zinc-50 text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left">
+        {/* Social Media icons */}
         <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between">
           <div className="me-12 hidden lg:block">
             <span>Get connected with us on social networks:</span>
@@ -88,19 +96,23 @@ export default function Footer() {
               </p>
             </div>
 
-            <div>
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                Useful links
-              </h6>
-              <p className="mb-4">
-                <a href="/favorites">Favorites</a>
-              </p>
-              <p className="mb-4">
-                <a href="/contact">Contact</a>
-              </p>
-              <p>
-                <a href="/about">About</a>
-              </p>
+            <div className="flex flex-col">
+              <h6 className="mb-4 font-semibold uppercase">Useful links</h6>
+              {NAVBAR_LINKS.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  aria-current={item.current ? "page" : undefined}
+                  className={classNames(
+                    item.current
+                      ? "bg-gray-950/50 text-white"
+                      : "text-gray-300 hover:bg-white/5 hover:text-white",
+                    "rounded-md px-3 py-2 text-md font-medium"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
 
             <div>
@@ -171,12 +183,13 @@ export default function Footer() {
 
         <div className="bg-black/5 p-6 text-center">
           <span>© 2025 Copyright: </span>
-          <a
+          <Link
             className="font-semibold"
-            href="https://vincent-cantonnet.vercel.app/"
+            target="_blank"
+            to="https://vincent-cantonnet.vercel.app/"
           >
-            Vincent
-          </a>
+            Alex
+          </Link>
         </div>
       </footer>
     </>

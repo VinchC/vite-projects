@@ -9,14 +9,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-
-const navigation = [
-  { name: "Players", href: "/players", current: false },
-  { name: "Clubs", href: "/clubs", current: false },
-  { name: "Countries", href: "/countries", current: false },
-  { name: "Favorites", href: "/favorites", current: false },
-  { name: "About", href: "/about", current: false },
-];
+import { NAVBAR_LINKS } from "../../data/data";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -26,9 +19,9 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="flex-no-wrap fixed top-0 w-full bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+      className="flex-no-wrap fixed top-0 w-full z-50 bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
     >
-      <div className="mx-auto px-2 sm:px-6 lg:px-8 ">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
@@ -57,7 +50,7 @@ export default function Navbar() {
             </Link>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-8">
-                {navigation.map((item) => (
+                {NAVBAR_LINKS.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
@@ -75,10 +68,10 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="flex items-center justify-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
-              <MenuButton className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+              <MenuButton className="relative flex justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2">
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">Open user menu</span>
                 <img
@@ -124,7 +117,7 @@ export default function Navbar() {
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
+          {NAVBAR_LINKS.map((item) => (
             <DisclosureButton
               key={item.name}
               as="a"

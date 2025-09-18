@@ -1,4 +1,37 @@
-import { ClubProps, CountryProps, PlayerProps } from "../types";
+import { ClubProps, CountryProps, NavbarProps, PlayerProps } from "../types";
+
+export const NAVBAR_LINKS: NavbarProps[] = [
+  {
+    id: 1,
+    name: "Players",
+    href: "/players",
+    current: false,
+  },
+  {
+    id: 2,
+    name: "Clubs",
+    href: "/clubs",
+    current: false,
+  },
+  {
+    id: 3,
+    name: "Countries",
+    href: "/countries",
+    current: false,
+  },
+  {
+    id: 4,
+    name: "Favorites",
+    href: "/favorites",
+    current: false,
+  },
+  {
+    id: 5,
+    name: "About",
+    href: "/about",
+    current: false,
+  },
+];
 
 export const PLAYERS: PlayerProps[] = [
   {

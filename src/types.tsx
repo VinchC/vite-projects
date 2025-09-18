@@ -19,3 +19,10 @@ export type CountryProps = {
   picture: string;
   continent: string;
 };
+
+export type NavbarProps = {
+  id: number;
+  name: string;
+  href: string;
+  current: boolean;
+};
